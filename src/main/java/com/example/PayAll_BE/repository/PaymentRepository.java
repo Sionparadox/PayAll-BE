@@ -32,4 +32,6 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
 		LocalDateTime endDate
 	);
 
+
+
 }
