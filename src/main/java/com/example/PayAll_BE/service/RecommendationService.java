@@ -51,18 +51,15 @@ public class RecommendationService {
 
 			if (bestCard != null) {
 				// 해당 가맹점의 총 소비 금액 계산
-				BigDecimal totalSpentAtPlace = payments.stream()
-					.filter(payment -> payment.getPaymentPlace().equals(paymentPlace)) // 해당 가맹점 필터
-					.map(Payment::getPrice); // 소비 금액 추출
-					.reduce(BigDecimal.ZERO, BigDecimal::add); // 총합 계산
+				// BigDecimal totalSpentAtPlace = 1;
 
 				// 할인 금액 계산
-				BigDecimal discountAmount = totalSpentAtPlace.multiply(
-					bestCard.getBenefitValue().divide(new BigDecimal(100)));
+				// BigDecimal discountAmount = totalSpentAtPlace.multiply(
+				// 	bestCard.getBenefitValue().divide(new BigDecimal(100)));
 
 				// 추천 결과 저장
-				recommendations.add(
-					new CardRecommendationResultDto(bestCard.getCardName(), paymentPlace, discountAmount));
+				// recommendations.add(
+				// 	new CardRecommendationResultDto(bestCard.getCardName(), paymentPlace, discountAmount));
 			}
 		}
 
