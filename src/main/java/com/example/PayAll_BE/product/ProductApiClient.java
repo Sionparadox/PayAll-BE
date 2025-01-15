@@ -29,4 +29,14 @@ public class ProductApiClient {
 
 		return response.getBody();
 	}
+	public ProductDto fetchProductByName(String productName) {
+		String url = productApiUrl + "by-name/" + productName;
+		ResponseEntity<ProductDto> response = restTemplate.getForEntity(url, ProductDto.class);
+
+		if (response.getBody() == null) {
+			throw new NotFoundException("해당 상품 이름을 가진 상품이 없습니다.");
+		}
+
+		return response.getBody();
+	}
 }
