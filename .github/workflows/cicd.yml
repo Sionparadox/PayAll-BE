@@ -84,7 +84,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
-          source: 'payall-0.0.1-SNAPSHOT.jar'
+          source: 'PayAll-BE-0.0.1-SNAPSHOT.jar'
           target: '/home/${{ secrets.EC2_USERNAME }}/PayAll-BE/build/libs/'
 
       # 애플리케이션 실행
@@ -99,9 +99,9 @@ jobs:
             cd /home/${{ secrets.EC2_USERNAME }}/PayAll-BE
 
             # JAR 파일 실행 권한 부여
-            chmod +x build/libs/payall-0.0.1-SNAPSHOT.jar
+            chmod +x build/libs/PayAll-BE-0.0.1-SNAPSHOT.jar
 
             # 애플리케이션 실행 및 PID 저장
-            nohup java -jar build/libs/payall-0.0.1-SNAPSHOT.jar > /home/${{ secrets.EC2_USERNAME }}/app.log 2>&1 & echo $! > /home/${{ secrets.EC2_USERNAME }}/app.pid
+            nohup java -jar build/libs/PayAll-BE-0.0.1-SNAPSHOT.jar > /home/${{ secrets.EC2_USERNAME }}/app.log 2>&1 & echo $! > /home/${{ secrets.EC2_USERNAME }}/app.pid
 
             echo "Application started!" >> /home/${{ secrets.EC2_USERNAME }}/app.log
